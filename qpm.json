@@ -1,0 +1,35 @@
+{
+  "sharedDir": "shared",
+  "dependenciesDir": "extern",
+  "info": {
+    "name": "1in100Unplayable",
+    "id": "1in100Unplayable",
+    "version": "0.1.0",
+    "url": null,
+    "additionalData": {
+      "overrideSoName": "lib1in100Unplayable.so"
+    }
+  },
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "versionRange": "^3.14.0",
+      "additionalData": {
+        "extraFiles": [
+          "src/inline-hook"
+        ]
+      }
+    },
+    {
+      "id": "modloader",
+      "versionRange": "=1.2.3",
+      "additionalData": {}
+    },
+    {
+      "id": "codegen",
+      "versionRange": "^0.28.0",
+      "additionalData": {}
+    }
+  ],
+  "additionalData": {}
+}

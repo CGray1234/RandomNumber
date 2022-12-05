@@ -1,0 +1,18 @@
+{
+	"_QPVersion": "0.1.1",
+	"name": "1in100Unplayable",
+	"id": "1in100Unplayable",
+	"author": "CGray1234",
+	"version": "0.1.0",
+	"packageId": "com.beatgames.beatsaber",
+	"packageVersion": "1.25.1",
+	"description": "Has a 1 in 100 chance of deleting every button in the main menu.",
+	"dependencies": [],
+	"modFiles": [
+		"lib1in100Unplayable.so"
+	],
+	"libraryFiles": [
+		"libbeatsaber-hook_3_14_0.so"
+	],
+	"fileCopies": []
+}
