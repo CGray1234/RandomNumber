@@ -1,5 +1,7 @@
 #include "main.hpp"
+
 #include "GlobalNamespace/MainMenuViewController.hpp"
+#include "UnityEngine/GameObject.hpp"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -20,14 +22,16 @@ Logger& getLogger() {
     return *logger;
 }
 
-MAKE_HOOK_MATCH(MainMenuViewController_DidActivate, &GlobalNamespace::MainMenuViewController::DidActivate, GlobalNamespace::MainMenuViewController *self, void, bool firstActivation, bool addedToHierarchy, bool screenSystemEnabling) {
+// Putting all of these in main.cpp because there's no reason to make separate files for one hook
+MAKE_HOOK_MATCH(MainMenuViewController_DidActivate, &GlobalNamespace::MainMenuViewController::DidActivate, void, GlobalNamespace::MainMenuViewController *self, bool firstActivation, bool addedToHierarchy, bool screenSystemEnabling) {
     MainMenuViewController_DidActivate(self, firstActivation, addedToHierarchy, screenSystemEnabling);
 
     srand((unsigned) time(0));
-    i = (rand() % 100);
 
-    if (i = 21) {
-        // Finish code tomorrow
+    if ((rand() % 100) == 21) {
+        self->get_gameObject()->SetActive(false);
+    } else {
+        return;
     }
 }
 
@@ -46,6 +50,6 @@ extern "C" void load() {
     il2cpp_functions::Init();
 
     getLogger().info("Installing hooks...");
-    // Install our hooks (none defined yet)
+    INSTALL_HOOK(getLogger(), MainMenuViewController_DidActivate);
     getLogger().info("Installed all hooks!");
 }
